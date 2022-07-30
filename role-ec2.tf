@@ -1,7 +1,6 @@
 resource "aws_iam_policy" "ec2_policy" {
   name        = "K8s-policy"
   description = "My terraform server policy"
-  role = "${aws_iam_role.ec2_role.id}"
   policy = "${file("policy.json")}"
 }
 
