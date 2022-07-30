@@ -8,3 +8,4 @@ terraform validate
 terraform plan
 terraform apply --auto-approve
 echo "Terraform success"
+echo "goodluck"
