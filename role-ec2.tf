@@ -11,6 +11,13 @@ resource "aws_iam_role" "ec2_role" {
   assume_role_policy = "${file("assume_policy.json")}"
 }
 
+resource "aws_iam_policy_attachment" "k8s_policy_attach" {
+  name = "terraform attachment"
+  roles = [aws_iam_role.ec2_role.name]
+  policy_arn = aws_iam_policy.ec2_policy.arn
+  
+}
+
 resource "aws_iam_instance_profile" "ec2_proflile" {
   name  = "ec2_profile"
   role = aws_iam_role.ec2_role.name
