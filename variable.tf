@@ -44,6 +44,10 @@ variable "env" {
 
 variable "ingressrule" {
   type    = list(any)
-  default = ["80", "22"]
+  default = ["80", "22", "6443"]
 }
 
+variable "master-rules" {
+  type    = list(any)
+  default = [ "2379-2380", "10250", "10259", "10257" ]
+}
