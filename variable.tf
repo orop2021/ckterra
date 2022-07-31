@@ -43,13 +43,13 @@ variable "env" {
 }
 
 variable "ingressrule" {
-  type    = list(any)
+  type    = list(number)
   default = ["80", "22", "6443", "2379-2380", "10250", "10259", "10257"]
 }
 
 
 variable "node-ingressrule" {
-  type    = list(any)
+  type    = list(number)
   default = [ "10250", "30000-32767", "22" ]
 }
   
