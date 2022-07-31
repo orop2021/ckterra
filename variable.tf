@@ -44,7 +44,7 @@ variable "env" {
 
 variable "ingressrule" {
   type    = list(any)
-  default = ["80", "22", "6443"]
+  default = ["80", "22", "6443", "2379-2380", "10250", "10259", "10257"]
 }
 
 variable "master-ingressrule" {
@@ -57,9 +57,7 @@ variable "master-ingressrule" {
 }
 
 variable "node-ingressrule" {
-  type    = map(map(any))
-  default = {
-    thing1 ={from=22, to=22, proto="tcp", cidr=["0.0.0.0/0"], desc="Dev"}
-    thing2 = {from=10250, to=10250, proto="tcp", cidr=["172.31.0.0/16"], desc="Dev"}
-  }
+  type    = list(any)
+  default = [ "10250", "30000-32767", "22" ]
 }
+  
