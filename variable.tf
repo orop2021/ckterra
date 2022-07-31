@@ -44,6 +44,6 @@ variable "env" {
 
 variable "ingressrule" {
   type    = list(any)
-  default = ["80", "22", "0"]
+  default = ["80", "22"]
 }
 
