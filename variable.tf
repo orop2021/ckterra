@@ -48,6 +48,20 @@ variable "ingressrule" {
 }
 
 variable "master-ingressrule" {
-  type    = list(any)
-  default = [ "2379-2380", "10250", "10259", "10257" ]
+  type    = map(map(any))
+  default = {
+    thing1 ={from=2379-2380, to=2379-2380, proto="tcp", cidr="172.31.0.0/16", desc="Dev"}
+    thing2 = {from=10250, to=10250, proto="tcp", cidr="172.31.0.0/16", desc="Dev"}
+    thing3 = {from=10259, to=10259, proto="tcp", cidr="172.31.0.0/16", desc="Dev"}
+    thing4 = {from=10257, to=10257, proto="tcp", cidr="172.31.0.0/16", desc="Dev"}
+  }
+}
+
+variable "node-ingressrule" {
+  type    = map(map(any))
+  default = {
+    thing1 ={from=22, to=22, proto="tcp", cidr="0.0.0.0/0", desc="Dev"}
+    thing2 = {from=10250, to=10250, proto="tcp", cidr="172.31.0.0/16", desc="Dev"}
+    thing3 = {from=30000-32767, to=30000-32767, proto="tcp", cidr="172.31.0.0/16", desc="Dev"}
+  }
 }

@@ -15,7 +15,7 @@ resource "aws_instance" "master1-k8s" {
 resource "aws_instance" "node1-k8s" {
   ami           = var.ami
   instance_type = var.node_instance_type
-  vpc_security_group_ids = [aws_security_group.main_web_sg.id]
+  vpc_security_group_ids = [aws_security_group.node-sg.id]
   key_name      = var.keypair
   user_data = "${file("user-data.sh")}"
   tags = {
@@ -27,7 +27,7 @@ resource "aws_instance" "node1-k8s" {
 resource "aws_instance" "node2-k8s" {
   ami           = var.ami
   instance_type = var.node_instance_type
-  vpc_security_group_ids = [aws_security_group.main_web_sg.id]
+  vpc_security_group_ids = [aws_security_group.node-sg.id]
   key_name      = var.keypair
   user_data = "${file("user-data.sh")}"
   tags = {
