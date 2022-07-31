@@ -47,7 +47,7 @@ variable "ingressrule" {
   default = ["80", "22", "6443"]
 }
 
-variable "master-rules" {
+variable "master-ingressrule" {
   type    = list(any)
   default = [ "2379-2380", "10250", "10259", "10257" ]
 }
