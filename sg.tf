@@ -40,7 +40,7 @@ resource "aws_security_group" "node-sg" {
   }
 }
 
-resource "aws_security_group_rule" "Master-sg-rule" {
+resource "aws_security_group_rule" "node-sg-rule" {
   for_each = var.node-ingressrule
   type              = "ingress"
   from_port         = each.value.from
