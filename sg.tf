@@ -26,7 +26,7 @@ resource "aws_security_group_rule" "Master-sg-rule" {
   from_port         = each.value.from
   to_port           = each.value.to
   protocol          = each.value.proto
-  cidr_blocks       = ["172.31.0.0/16"]
+  cidr_blocks       = each.value.cidr
   security_group_id = aws_security_group.main_web_sg.id
 }
 
@@ -46,7 +46,7 @@ resource "aws_security_group_rule" "node-sg-rule" {
   from_port         = each.value.from
   to_port           = each.value.to
   protocol          = each.value.proto
-  cidr_blocks       = ["172.31.0.0/16"]
+  cidr_blocks       = each.value.cidr
   security_group_id = aws_security_group.node-sg.id
 }
 
