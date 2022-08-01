@@ -10,13 +10,13 @@ variable "ami" {
 
 variable "node_instance_type" {
   type    = string
-  default = "t2.small"
+  default = "t2.medium"
 }
 
 
 variable "instance_type" {
   type    = string
-  default = "t2.micro"
+  default = "t2.medium"
 }
 
 variable "keypair" {
